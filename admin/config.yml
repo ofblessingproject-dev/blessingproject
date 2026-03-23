@@ -1,0 +1,62 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+collections:
+  - name: "portfolio_data"
+    label: "포트폴리오 관리"
+    files:
+      - label: "포트폴리오 전체 내용"
+        name: "portfolio"
+        file: "data/portfolio.json"
+        fields:
+          - label: "Original IP (시리즈별)"
+            name: "original_ip"
+            widget: "list"
+            fields:
+              - label: "시리즈 제목 (예: 웹드라마 '트라이앵글')"
+                name: "series_title"
+                widget: "string"
+              - label: "영상 목록"
+                name: "items"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "영상 제목", name: "title", widget: "string"}
+                  - {label: "Youtube 영상 ID (예: 8396zC16iM8)", name: "youtube_id", widget: "string"}
+          
+          - label: "단편 (Short Film)"
+            name: "short_film"
+            widget: "list"
+            fields:
+              - {label: "제목", name: "title", widget: "string"}
+              - {label: "Youtube 영상 ID", name: "youtube_id", widget: "string"}
+              
+          - label: "수상이력 (Awards)"
+            name: "awards"
+            widget: "list"
+            fields:
+              - {label: "연도 (예: 2025)", name: "year", widget: "string"}
+              - {label: "상 이름", name: "title", widget: "string"}
+              
+          - label: "스냅 (Snap 사진)"
+            name: "snap"
+            widget: "list"
+            required: false
+            fields:
+              - {label: "사진 제목", name: "title", widget: "string"}
+              - {label: "이미지 업로드", name: "image", widget: "image"}
+              
+          - label: "VTuber (채널 링크)"
+            name: "vtuber"
+            widget: "list"
+            required: false
+            fields:
+              - {label: "크리에이터 명", name: "name", widget: "string"}
+              - {label: "채널 주소 (URL)", name: "link", widget: "string"}
+              - {label: "버튼 아이콘", name: "icon", widget: "select", options: ["ph-monitor-play", "ph-youtube-logo", "ph-twitch-logo", "ph-link"]}

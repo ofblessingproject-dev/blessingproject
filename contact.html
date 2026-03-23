@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Blessing Project</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="블레싱 프로젝트 연락처 - 영상 제작 및 협업 문의">
+    <!-- FontPretendard -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .contact-page {
+            padding-top: 150px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 4rem 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        .contact-item {
+            font-size: 1.2rem;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+        }
+        .contact-item span {
+            color: var(--text-primary);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+        .contact-item a {
+            color: var(--accent-color);
+        }
+        .contact-item a:hover {
+            color: var(--accent-hover);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="navbar">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">BLESSING PROJECT</a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Main</a>
+                <div class="dropdown">
+                    <button class="dropbtn nav-link">Portfolio <i class="ph ph-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="portfolio.html#portfolio-short">단편 (Short Film)</a>
+                        <a href="portfolio.html#portfolio-awards">수상이력 (Awards)</a>
+                        <a href="portfolio.html#portfolio-snap">스냅 (Snap)</a>
+                        <a href="portfolio.html#portfolio-ip">Original IP</a>
+                        <a href="portfolio.html#portfolio-vtuber">VTuber</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </div>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="index.html" class="mobile-link">Main</a>
+            <div class="mobile-dropdown-title">Portfolio</div>
+            <a href="portfolio.html#portfolio-short" class="mobile-sublink">- 단편</a>
+            <a href="portfolio.html#portfolio-awards" class="mobile-sublink">- 수상이력</a>
+            <a href="portfolio.html#portfolio-snap" class="mobile-sublink">- 스냅</a>
+            <a href="portfolio.html#portfolio-ip" class="mobile-sublink">- Original IP</a>
+            <a href="portfolio.html#portfolio-vtuber" class="mobile-sublink">- VTuber</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Contact Section -->
+        <section class="contact-page fade-up-section">
+            <div class="container">
+                <div class="contact-wrapper fade-in">
+                    <h2 class="section-title">Contact Us</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 3rem;">그 질문의 시간을 함께하기 위해, 블레싱 프로젝트가 곁에 있겠습니다.<br>협업 및 제작 문의는 언제든 환영합니다.</p>
+                    
+                    <div class="contact-item">
+                        <span>Email</span>
+                        <a href="mailto:of.blessingproject@gmail.com">of.blessingproject@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">BLESSING PROJECT</div>
+            <div class="footer-divider"></div>
+            <div class="footer-info">
+                <div class="info-item"><span>상호명:</span> 블레싱 프로젝트</div>
+                <div class="info-item"><span>대표:</span> 주 영</div>
+                <div class="info-item"><span>사업자번호:</span> 416-19-96076</div>
+                <div class="info-item"><span>이메일:</span> <a href="mailto:of.blessingproject@gmail.com">of.blessingproject@gmail.com</a></div>
+            </div>
+            <div class="footer-copyright">
+                &copy; <span id="year"></span> Blessing Project. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>

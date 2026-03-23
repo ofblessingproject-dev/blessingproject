@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blessing Project | 블레싱 프로젝트</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="블레싱 프로젝트는 청춘이란 나를 증명하는 과정이라는 믿음으로 활동하는 크리에이터 그룹입니다.">
+    <!-- FontPretendard -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <!-- Icons (Phosphor Icons - clean and premium) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css?v=4">
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="navbar">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">BLESSING PROJECT</a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Main</a>
+                <div class="dropdown">
+                    <button class="dropbtn nav-link">Portfolio <i class="ph ph-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="portfolio.html#portfolio-short">단편 (Short Film)</a>
+                        <a href="portfolio.html#portfolio-awards">수상이력 (Awards)</a>
+                        <a href="portfolio.html#portfolio-snap">스냅 (Snap)</a>
+                        <a href="portfolio.html#portfolio-ip">Original IP</a>
+                        <a href="portfolio.html#portfolio-vtuber">VTuber</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </div>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="index.html" class="mobile-link">Main</a>
+            <div class="mobile-dropdown-title">Portfolio</div>
+            <a href="portfolio.html#portfolio-short" class="mobile-sublink">- 단편</a>
+            <a href="portfolio.html#portfolio-awards" class="mobile-sublink">- 수상이력</a>
+            <a href="portfolio.html#portfolio-snap" class="mobile-sublink">- 스냅</a>
+            <a href="portfolio.html#portfolio-ip" class="mobile-sublink">- Original IP</a>
+            <a href="portfolio.html#portfolio-vtuber" class="mobile-sublink">- VTuber</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero fade-up-section">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">당신의 청춘을<br><span>증명</span>합니다.</h1>
+                <p class="hero-subtitle">Blessing Project</p>
+                <div class="hero-logo-container">
+                    <img src="images/logo-no-line.png" class="hero-logo base-logo" alt="Blessing Project">
+                    <div class="hero-logo-overlay" id="logoOverlay">
+                        <img src="images/logo-accent-line.png" class="hero-logo overlaid-logo" alt="Blessing Project Animated">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section-padding fade-up-section">
+            <div class="container">
+                <div class="about-text">
+                    <p class="highlight-text script-reveal">블레싱 프로젝트는 “청춘이란, 나를 증명하는 과정”이라는 믿음으로 활동하는 크리에이터 그룹입니다.</p>
+                    <br>
+                    <p class="fade-up-text">아직 무엇이 될지 확신하지 못했고, 선택과 망설임 사이를 오가며,</p>
+                    <p class="fade-up-text">자신을 설명하려 애쓰는 시간.</p>
+                    <p class="fade-up-text">우리는 그 시간을 청춘이라고 부릅니다.</p>
+                    <br>
+                    <p class="fade-up-text">블레싱 프로젝트는 청춘을 시기나 나이로 규정하지 않습니다.</p>
+                    <p class="fade-up-text">지금도 증명 중이라는 ‘상태’ 그 자체가 중요하다고 생각합니다.</p>
+                    <br>
+                    <p class="fade-up-text">우리는 과장된 연출로 사실을 왜곡하기보다, 있는 그대로의 지금을 담는 데 최선을 다합니다.</p>
+                    <br>
+                    <p class="highlight-text script-reveal delay-1">모든 작업은 하나의 질문에서 출발합니다.</p>
+                    <p class="quote-text fade-up-text delay-2">“지금, 이 사람은 무엇을 증명하고 있는가.”</p>
+                    <br>
+                    <p class="fade-up-text delay-3">우리는 이 질문을 기록하지 않으면, 너무 많은 ‘증명 중인 시간’들이</p>
+                    <p class="fade-up-text delay-3">아무 말 없이 사라져버린다고 느꼈습니다.</p>
+                    <br>
+                    <p class="highlight-text script-reveal delay-4">그 질문의 시간을 함께하기 위해, 블레싱 프로젝트가 곁에 있겠습니다.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Portfolio Sections -->
+        <section id="portfolio" class="portfolio section-padding home-portfolio">
+            <div class="container">
+                <h2 class="section-title">Portfolio</h2>
+
+                <div class="portfolio-slider-container fade-up-section">
+                    
+                    <div class="portfolio-controls-top" style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+                        <button class="portfolio-arrow prev-arrow" id="slider-prev" aria-label="Previous Section"><i class="ph ph-caret-left"></i></button>
+                        
+                        <div class="portfolio-dots-container" id="slider-dots">
+                            <div class="portfolio-dot active" data-index="0"></div>
+                            <div class="portfolio-dot" data-index="1"></div>
+                            <div class="portfolio-dot" data-index="2"></div>
+                            <div class="portfolio-dot" data-index="3"></div>
+                            <div class="portfolio-dot" data-index="4"></div>
+                        </div>
+
+                        <button class="portfolio-arrow next-arrow" id="slider-next" aria-label="Next Section"><i class="ph ph-caret-right"></i></button>
+                    </div>
+
+                    <div class="portfolio-carousel-mask">
+                        <div id="portfolio-track" class="portfolio-carousel-track">
+                            <!-- Category: 촬영 (Filming) -->
+                            <div id="portfolio-filming" class="portfolio-category active-slide" data-index="0">
+                                <h3 class="category-title">촬영 <span class="category-subtitle">Filming</span></h3>
+                                <div id="render-filming"></div>
+                            </div>
+                            
+                            <!-- Category: 수상이력 -->
+                            <div id="portfolio-awards" class="portfolio-category" data-index="1" style="">
+                                <h3 class="category-title">수상이력 <span class="category-subtitle">Awards</span></h3>
+                                <div id="render-awards"></div>
+                            </div>
+                            
+                            <!-- Category: Photo -->
+                            <div id="portfolio-photo" class="portfolio-category" data-index="2" style="">
+                                <h3 class="category-title">Photo <span class="category-subtitle">사진</span></h3>
+                                <div id="render-photo"></div>
+                            </div>
+
+                            <!-- Category: Original IP -->
+                            <div id="portfolio-ip" class="portfolio-category" data-index="3" style="">
+                                <h3 class="category-title">Original IP</h3>
+                                <div id="render-original-ip"></div>
+                            </div>
+
+                            <!-- Category: VTuber -->
+                            <div id="portfolio-vtuber" class="portfolio-category" data-index="4" style="">
+                                <h3 class="category-title">VTuber <span class="category-subtitle">Virtual Creator</span></h3>
+                                <div id="render-vtuber"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">BLESSING PROJECT</div>
+            <div class="footer-divider"></div>
+            <div class="footer-info">
+                <div class="info-item"><span>상호명:</span> 블레싱 프로젝트</div>
+                <div class="info-item"><span>대표:</span> 주 영</div>
+                <div class="info-item"><span>사업자번호:</span> 416-19-96076</div>
+                <div class="info-item"><span>이메일:</span> <a href="mailto:of.blessingproject@gmail.com">of.blessingproject@gmail.com</a></div>
+            </div>
+            <div class="footer-copyright">
+                &copy; <span id="year"></span> Blessing Project. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="scripts/main.js?v=2"></script>
+    <script src="data/portfolioData.js"></script>
+    <script src="scripts/portfolio.js"></script>
+    
+    <!-- Optional: Add script to handle redirect if user logs in from index -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+</body>
+</html>
