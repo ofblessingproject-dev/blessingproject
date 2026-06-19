@@ -1,92 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- Set current year in footer ---
-    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // --- Navbar Scroll Effect ---
-    const header = document.getElementById('navbar');
-    
-    // --- Hero Logo Scroll Animation ---
-    const logoOverlay = document.getElementById('logoOverlay');
+  // ── Year ──
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        
-        // Navbar Scrolled Effect
-        if (scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-        
-        // Logo Animation Effect (animate 0 -> 100% over internal 400px of scroll)
-        if (logoOverlay) {
-            const maxScroll = window.innerHeight * 0.35; // Finishes much earlier before full scroll
-            let percentage = (scrollY / maxScroll) * 100;
-            if (percentage > 100) percentage = 100;
-            if (percentage < 0) percentage = 0;
-            // 0% scroll -> 0% width polygon, 100% scroll -> 100% width polygon
-            logoOverlay.style.webkitClipPath = `polygon(0% 0%, ${percentage}% 0%, ${percentage}% 100%, 0% 100%)`;
-            logoOverlay.style.clipPath = `polygon(0% 0%, ${percentage}% 0%, ${percentage}% 100%, 0% 100%)`;
-        }
-    });
+  // ── Navbar scroll ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
 
-    // --- Mobile Menu Toggle ---
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileNav = document.getElementById('mobileNav');
+  // ── Logo 가로선 좌→우 애니메이션 ──
+  const logoOverlay = document.getElementById('logoOverlay');
+  if (logoOverlay) {
+    let animated = false;
 
+    function animateLogo() {
+      if (animated) return;
+      animated = true;
+      const duration = 900;
+      const start = performance.now();
+      function step(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+        const pct = (eased * 100).toFixed(2);
+        logoOverlay.style.clipPath =
+          `polygon(0% 0%, ${pct}% 0%, ${pct}% 100%, 0% 100%)`;
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // 페이지 로드 후 0.6초 뒤 시작
+    window.addEventListener('load', () => setTimeout(animateLogo, 600));
+  }
+
+  // ── Mobile menu ──
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  if (mobileMenuBtn && mobileNav) {
     mobileMenuBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
+      const isOpen = mobileNav.classList.toggle('active');
+      const icon = mobileMenuBtn.querySelector('i');
+      if (icon) {
+        icon.className = isOpen ? 'ph ph-x' : 'ph ph-list';
+      }
+    });
+
+    document.querySelectorAll('.mobile-link, .mobile-sublink').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
         const icon = mobileMenuBtn.querySelector('i');
-        if (mobileNav.classList.contains('active')) {
-            icon.classList.remove('ph-list');
-            icon.classList.add('ph-x');
-        } else {
-            icon.classList.remove('ph-x');
-            icon.classList.add('ph-list');
-        }
+        if (icon) icon.className = 'ph ph-list';
+      });
     });
+  }
 
-    // Close mobile nav when linking
-    const mobileLinks = document.querySelectorAll('.mobile-link, .mobile-sublink');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.remove('ph-x');
-            icon.classList.add('ph-list');
+  // ── Intersection Observer: fade-up-section + text lines ──
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+
+        entry.target.querySelectorAll('.fade-up-text, .script-reveal').forEach((el, i) => {
+          setTimeout(() => el.classList.add('visible'), i * 80);
         });
+      }
     });
+  }, { threshold: 0.12 });
 
-    // --- Intersection Observer for Fade Up Animations ---
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
-
-    const sectionObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                
-                // If the section has text elements to fade up
-                const textElements = entry.target.querySelectorAll('.fade-up-text, .script-reveal');
-                textElements.forEach((el, index) => {
-                    // Minimal staggering
-                    setTimeout(() => {
-                        el.classList.add('visible');
-                    }, index * 100); // 100ms stagger between text lines within a section
-                });
-
-                // Option: Stop observing once faded in if you only want it to happen once
-                // observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe all sections and cards with fade-up-section
-    const animatedElements = document.querySelectorAll('.fade-up-section');
-    animatedElements.forEach(el => sectionObserver.observe(el));
+  document.querySelectorAll('.fade-up-section').forEach(el => sectionObserver.observe(el));
 
 });
