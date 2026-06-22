@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 html += `
                 <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; background: #ffffff; padding: 2.5rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.03); height: 100%;">
-                    <div style="width: 140px; height: 140px; border-radius: 50%; background: #f8f8f8; flex-shrink: 0; overflow: hidden; border: 1px dashed rgba(0,0,0,0.15); margin: 0 auto;">
+                    <div style="width: 140px; height: 140px; border-radius: 50%; background: #f8f8f8; flex-shrink: 0; overflow: hidden; border: none; margin: 0 auto;">
                         ${imgHtml}
                     </div>
                     <div style="display: flex; flex-direction: column; flex: 1; width: 100%;">
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                     html += `
                     <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; background: #ffffff; padding: 2.5rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.03); height: 100%;">
-                        <div style="width: 140px; height: 140px; border-radius: 50%; background: #f8f8f8; flex-shrink: 0; overflow: hidden; border: 1px dashed rgba(0,0,0,0.15); margin: 0 auto;">
+                        <div style="width: 140px; height: 140px; border-radius: 50%; background: #f8f8f8; flex-shrink: 0; overflow: hidden; border: none; margin: 0 auto;">
                             ${imgHtml}
                         </div>
                         <div style="display: flex; flex-direction: column; flex: 1; width: 100%;">

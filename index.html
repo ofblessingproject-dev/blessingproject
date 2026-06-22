@@ -157,6 +157,18 @@
 
       </div>
 
+      <!-- Tab bar -->
+      <nav class="fp-tabbar" id="fp-tabbar">
+        <button class="fp-tab active" data-index="0">Main</button>
+        <button class="fp-tab" data-index="1">촬영</button>
+        <button class="fp-tab" data-index="2">수상이력</button>
+        <button class="fp-tab" data-index="3">Photo</button>
+        <button class="fp-tab" data-index="4">Original IP</button>
+        <button class="fp-tab" data-index="5">VTuber</button>
+        <button class="fp-tab" data-index="6">About</button>
+        <div class="fp-tab-indicator" id="fp-tab-indicator"></div>
+      </nav>
+
       <!-- Navigation arrows -->
       <button class="fp-arrow fp-arrow-left" id="fp-prev" aria-label="이전">
         <i class="ph ph-caret-left"></i>
@@ -164,16 +176,13 @@
       <button class="fp-arrow fp-arrow-right" id="fp-next" aria-label="다음">
         <i class="ph ph-caret-right"></i>
       </button>
-
-      <!-- Page dots -->
-      <div class="fp-dots" id="fp-dots"></div>
     </div>
 
   </main>
 
   <script src="scripts/main.js?v=7"></script>
   <script src="data/portfolioData.js"></script>
-  <script src="scripts/portfolio.js"></script>
+  <script src="scripts/portfolio.js?v=7"></script>
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on('init', user => {

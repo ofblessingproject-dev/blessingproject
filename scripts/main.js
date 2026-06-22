@@ -62,25 +62,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Fullpage Carousel ──
   const track = document.getElementById('fp-track');
-  const dotsContainer = document.getElementById('fp-dots');
+  const tabbar = document.getElementById('fp-tabbar');
   const prevBtn = document.getElementById('fp-prev');
   const nextBtn = document.getElementById('fp-next');
 
-  if (track && dotsContainer) {
+  if (track && tabbar) {
     const slides = track.querySelectorAll('.fp-slide');
+    const tabs = tabbar.querySelectorAll('.fp-tab');
+    const indicator = document.getElementById('fp-tab-indicator');
     const total = slides.length;
     let current = 0;
     let isAnimating = false;
 
-    // Generate dots
-    for (let i = 0; i < total; i++) {
-      const dot = document.createElement('button');
-      dot.className = 'fp-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', `슬라이드 ${i + 1}`);
-      dot.addEventListener('click', () => goTo(i));
-      dotsContainer.appendChild(dot);
+    function moveIndicator(index) {
+      const tab = tabs[index];
+      if (!tab || !indicator) return;
+      indicator.style.left = tab.offsetLeft + 'px';
+      indicator.style.width = tab.offsetWidth + 'px';
     }
-    const dots = dotsContainer.querySelectorAll('.fp-dot');
 
     function goTo(index) {
       if (isAnimating || index === current) return;
@@ -92,11 +91,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       track.style.transform = `translateX(-${current * 100}vw)`;
 
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      tabs.forEach((t, i) => t.classList.toggle('active', i === current));
+      moveIndicator(current);
 
+      // Scroll active tab into view on mobile
+      tabs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 
       setTimeout(() => { isAnimating = false; }, 550);
     }
+
+    // Tab clicks
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => goTo(i));
+    });
 
     prevBtn.addEventListener('click', () => goTo(current - 1));
     nextBtn.addEventListener('click', () => goTo(current + 1));
@@ -124,6 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
 
+    // Init indicator
+    moveIndicator(0);
+    window.addEventListener('resize', () => moveIndicator(current));
   }
 
   // ── Intersection Observer: fade-up-section + text lines ──
