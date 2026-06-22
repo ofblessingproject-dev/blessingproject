@@ -308,60 +308,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
 
-        // Setup Portfolio Section Slider (Center Mode Carousel)
-        function setupSectionSlider() {
-            const track = document.getElementById('portfolio-track');
-            if (!track) return;
-            
-            const slides = track.querySelectorAll('.portfolio-category');
-            const dots = document.querySelectorAll('.portfolio-dot');
-            const prevBtn = document.getElementById('slider-prev');
-            const nextBtn = document.getElementById('slider-next');
-            
-            let currentIndex = 0;
-            const totalSlides = slides.length;
-            
-            // Initialize elements that had display:none removed
-            slides.forEach(slide => slide.style.display = 'block');
-            
-            function showSlide(index) {
-                if (index < 0) index = totalSlides - 1;
-                if (index >= totalSlides) index = 0;
-                
-                currentIndex = index;
-                
-                slides.forEach((slide, i) => {
-                    if (i === currentIndex) {
-                        slide.classList.add('active-slide');
-                    } else {
-                        slide.classList.remove('active-slide');
-                    }
-                });
-                
-                dots.forEach((dot, i) => {
-                    if (i === currentIndex) dot.classList.add('active');
-                    else dot.classList.remove('active');
-                });
-                
-                // Calculate center translation
-                const maskWidth = track.parentElement.offsetWidth;
-                const slideWidth = slides[0].offsetWidth;
-                const offset = -(index * slideWidth) + (maskWidth / 2) - (slideWidth / 2);
-                track.style.transform = `translateX(${offset}px)`;
-            }
-            
-            if (prevBtn) prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
-            if (nextBtn) nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
-            
-            dots.forEach((dot, i) => {
-                dot.addEventListener('click', () => showSlide(i));
-            });
-            
-            window.addEventListener('resize', () => showSlide(currentIndex));
-            setTimeout(() => showSlide(0), 150); // slight delay to ensure widths render
-        }
-        
-        setupSectionSlider();
+        // Slider setup is now handled by main.js fullpage carousel
 
     } catch (e) {
         console.error("Failed to load or parse portfolio data", e);
