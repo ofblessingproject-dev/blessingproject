@@ -118,7 +118,7 @@ const portfolioData = {
   ],
   "vtuber": [
     {
-      "name": "루시크 (Lucyc)",
+      "name": "루시크 (Rucyku)",
       "profile_image": "images/vprofile_image-1.jpeg",
       "description": "또 다른 세계의 무한한 가능성",
       "link": "https://chzzk.naver.com/0518d2c814ad6d4c9ee47fa2a22a7e3f",
